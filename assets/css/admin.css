@@ -1,0 +1,6 @@
+#tier-builder ul{list-style:none;margin:0;padding:0}
+#tier-builder li{margin-bottom:8px}
+#groups-list .group,#elements-list .element,#tiers-list .tier{background:#f9f9f9;padding:10px;border:1px solid #ddd}
+#groups-list input[type=text],#elements-list input[type=text],#tiers-list input[type=text]{margin-right:4px}
+#tiers-list .items .item{background:#fff;padding:6px;border:1px solid #ccc;margin:4px 0;position:relative;display:flex;flex-wrap:wrap;gap:4px}
+.remove-tier,.remove-group,.remove-item,.remove-element{margin-left:4px}

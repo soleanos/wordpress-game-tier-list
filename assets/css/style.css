@@ -1,0 +1,151 @@
+.tier-grid{display:grid;grid-template-columns:100px repeat(var(--count),1fr);gap:4px;background:#1f2024;padding:10px;border-radius:6px;overflow-x:auto;width:100%;box-sizing:border-box}
+.grid-header{background:#2d3038;color:#aaa;text-align:center;padding:8px 4px;font-size:13px;text-transform:uppercase;border-bottom:2px solid #15171a}
+.empty-cell{background:transparent}
+.tier-label-cell{writing-mode:vertical-rl;text-orientation:mixed;color:#fff;font-weight:bold;padding:8px;font-size:14px;text-align:center;border-top-left-radius:4px;border-bottom-left-radius:4px}
+.tier-cell{background:#2a2c31;padding:12px;min-height:140px;display:flex;flex-wrap:wrap;align-content:flex-start;justify-content:center;border-radius:4px}
+.tier-item{margin:6px;text-decoration:none;color:#fff;text-align:center;font-size:12px;width:80px}
+.tier-item img{width:80px;height:80px;border-radius:4px;object-fit:cover;display:block;margin:0 auto;border:2px solid #15171a}
+.tier-item-label{margin-top:6px;line-height:1.2;font-weight:500;display:flex;align-items:center;justify-content:center}
+.element-icon{width:16px;height:16px;margin-left:4px;border-radius:2px}
+@media(max-width:800px){.tier-grid{grid-template-columns:80px repeat(var(--count),1fr)}.tier-item,.tier-item img{width:60px;height:60px}.tier-cell{min-height:100px;padding:8px}}.tier-item{width:calc(50% - 12px)}.tier-cell{min-height:100px;padding:8px}.tier-item img{border-width:2px}}.tier-item,.tier-item img{width:60px;height:60px}.element-icon{width:12px;height:12px}.tier-cell{min-height:100px;padding:8px}}
+.element-icon{width:16px!important;height:16px!important;object-fit:contain!important;margin-left:4px!important;border-radius:2px!important}
+@media(max-width:800px){.tier-grid{grid-template-columns:80px repeat(var(--count),1fr)}.tier-item,.tier-item img{width:60px;height:60px}.tier-cell{min-height:100px;padding:8px}}.tier-item{width:calc(50% - 12px)}.tier-cell{min-height:100px;padding:8px}.tier-item img{border-width:2px}}}
+
+/* Tooltip styles */
+.tier-item{position:relative}
+.tier-tooltip{position:absolute;left:50%;top:-10px;transform:translate(-50%, -100%);display:none;z-index:50}
+.tier-tooltip-inner{background:#2a2c31;padding:12px 16px;border-radius:4px;border:1px solid #444;min-width:180px;text-align:center;box-shadow:0 6px 12px rgba(0,0,0,.4)}
+.tier-item:hover .tier-tooltip{display:block}
+.tooltip-avatar{width:80px;height:80px;object-fit:cover;border-radius:4px;margin:0 auto 6px;display:block}
+.tooltip-name{font-weight:600;margin-bottom:4px;font-size:14px}
+.tooltip-meta{display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:6px}
+.tooltip-rarity{padding:2px 6px;border:2px solid #fff;border-radius:3px;font-size:10px}
+.tooltip-element img{width:20px;height:20px;display:block}
+.tooltip-group{font-size:11px;font-weight:600}
+.tooltip-strengths{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.tooltip-strength{background:#444;padding:2px 6px;border-radius:3px;font-size:10px;display:flex;align-items:center;gap:4px}
+.tooltip-strength .square{width:14px;height:14px;display:inline-block;border-radius:2px}
+@media(max-width:800px){.tier-tooltip-inner{min-width:140px;padding:8px}.tooltip-avatar{width:60px;height:60px}}
+
+/* Tooltip fix v1.44 */
+.tier-item{position:relative}
+.tier-tooltip{position:absolute;left:50%;top:-8px;transform:translate(-50%, -100%);display:none;z-index:100}
+.tier-item:hover .tier-tooltip{display:block}
+.tier-tooltip-inner{background:#2a2c31;padding:12px 16px;border-radius:4px;border:1px solid #444;min-width:200px;text-align:center;box-shadow:0 6px 12px rgba(0,0,0,.4)}
+.tooltip-avatar{width:80px;height:80px;object-fit:cover;border-radius:4px;margin:0 auto 6px;display:block}
+.tooltip-name{font-weight:600;margin-bottom:4px;font-size:14px}
+.tooltip-meta{display:flex;justify-content:center;align-items:center;gap:6px;margin-bottom:6px}
+.tooltip-rarity{padding:2px 6px;border:2px solid #fff;border-radius:3px;font-size:10px}
+.tooltip-element img{width:20px;height:20px;display:block}
+.tooltip-group{font-size:11px;font-weight:600}
+.tooltip-strengths{display:flex;flex-wrap:wrap;gap:4px;justify-content:center}
+.tooltip-strength{background:#444;padding:3px 6px;border-radius:3px;font-size:10px;display:flex;align-items:center;gap:4px}
+.tooltip-strength .square{width:14px;height:14px;display:inline-block;border-radius:2px}
+@media(max-width:800px){.tier-tooltip-inner{min-width:140px;padding:8px}.tooltip-avatar{width:60px;height:60px}}
+
+/* v1.47 tooltip overflow fix */
+.tier-grid,.tier-cell{overflow:visible}
+
+/* v1.52 patch */
+.tier-grid, .tier-cell, .entry-content, .post-content, .site-main { overflow: visible !important; }
+.tier-item{ position:relative; }
+.tier-tooltip{
+  position:absolute;
+  left:50%;
+  bottom:100%;
+  transform:translate(-50%, -8px);
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  z-index:9999;
+  transition:opacity .15s;
+}
+.tier-item:hover .tier-tooltip{ opacity:1; visibility:visible; }
+
+/* v1.53 widen tooltip */
+.tier-tooltip-inner{min-width:320px;max-width:420px;}
+
+/* v1.55 ancestor overflow fix */
+.entry-content, .post-content, .site-main, .content-area, .elementor-widget-container{overflow:visible!important;}
+.tier-tooltip-inner{min-width:340px;max-width:460px;}
+
+/* v1.57 thin rarity border */
+.tier-item img[style*="border:2px"]{border-width:1px !important;box-shadow:0 0 0 2px var(--rc,#fff) !important;}
+
+/* v1.63 ensure tooltip above everything */
+.tier-tooltip{z-index:99999 !important;}
+/* If parent cuts overflow, force visible */
+.entry-content, .post-content, .site-main, .content-area, .elementor-widget-container, .container, .wp-block-post-content{
+  overflow: visible !important;
+  position: relative;
+}
+
+/* v1.64 thin border on tooltip via inline, fallback: */
+.tier-tooltip-inner{border:0.5px solid var(--rc,#444);box-shadow:0 0 4px var(--rc,#44455);}
+.tier-tooltip{z-index:99999!important;}
+
+/* v1.65 no glow, thin border */
+.tier-tooltip-inner{box-shadow:none !important;border:0.5px solid var(--rc,#444) !important;}
+.tier-item img[style*="border:"]{box-shadow:none !important;}
+/* fixed tooltip container to bypass overflow */
+.tl-fixed-tip{
+  position:fixed;
+  z-index:999999;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .1s;
+}
+.tl-fixed-tip.visible{opacity:1;}
+.tl-fixed-tip .tier-tooltip-inner{border:0.5px solid var(--rc,#444);box-shadow:none;min-width:300px;max-width:420px;background:#2a2c31;padding:12px 16px;border-radius:4px;text-align:center;}
+.tl-fixed-tip.arrow-top::after,
+.tl-fixed-tip.arrow-bottom::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  width:0;height:0;
+  border-left:8px solid transparent;
+  border-right:8px solid transparent;
+}
+.tl-fixed-tip.arrow-top::after{
+  border-top:8px solid #2a2c31;
+  bottom:-8px;
+}
+.tl-fixed-tip.arrow-bottom::after{
+  border-bottom:8px solid #2a2c31;
+  top:-8px;
+}
+
+/* v1.65m extra margins around list */
+.tier-grid{
+  margin:60px 160px 60px 0 !important;
+}
+
+/* v1.65n tweaks */
+.tier-grid{
+  margin:60px 160px 60px 0 !important; /* more right margin */
+}
+/* Palier label text stronger (yellow readable) */
+.tier-label{
+  font-weight:700 !important;
+  font-size:18px !important;
+  text-shadow:0 2px 3px rgba(0,0,0,.55), 0 0 2px rgba(0,0,0,.7);
+  filter: none !important;
+  color:#fff !important;
+}
+/* Tooltip palier square emphasis */
+.tooltip-strength .square-text{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-width:26px;
+  height:22px;
+  padding:0 8px;
+  border-radius:4px;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:.4px;
+  color:#fff;
+  box-shadow:0 0 4px rgba(0,0,0,.35);
+  border:2px solid currentColor;
+}
